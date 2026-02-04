@@ -10,21 +10,6 @@ body {
     color: #e0e0e0;
     padding-bottom: 50px;
 }
-/* Принудительное центрирование для всех случаев */
-.header {
-    justify-content: center !important;
-}
-
-.center-menu {
-    margin: 0 auto !important;
-}
-
-.logo {
-    position: absolute !important;
-    left: 30px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-}
 /* Шапка - центрируем содержимое */
 .header {
     background-color: #2d2d2d;
@@ -378,3 +363,4 @@ body {
     }
 
 }
+
