@@ -1,0 +1,493 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    padding-bottom: 50px;
+}
+
+/* Шапка */
+.header {
+    background-color: #2d2d2d;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.logo-subtitle {
+    font-size: 14px;
+    color: #aaaaaa;
+    margin-top: 2px;
+}
+
+.center-menu {
+    position: relative;
+}
+
+/* Кнопка "Открыть рейтинг" */
+.rating-button {
+    background-color: #3d3d3d;
+    border: 1px solid #4d4d4d;
+    padding: 14px 35px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 17px;
+    color: #ffffff;
+    transition: all 0.2s;
+    min-width: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.rating-button:hover {
+    background-color: #4d4d4d;
+    border-color: #fbbf24;
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.3);
+}
+
+.rating-button i {
+    font-size: 12px;
+    transition: transform 0.2s;
+}
+
+.rating-button.active i {
+    transform: rotate(180deg);
+}
+
+/* Главное меню (выпадает вниз) */
+.main-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3d3d3d;
+    border: 1px solid #4d4d4d;
+    border-radius: 6px;
+    margin-top: 8px;
+    display: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    z-index: 100;
+    min-width: 350px;
+    padding: 10px;
+}
+
+.main-dropdown.active {
+    display: block;
+}
+
+.main-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.category-item {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-item.blue {
+    background-color: #2563eb;
+    color: white;
+}
+
+.category-item.blue:hover {
+    background-color: #1d4ed8;
+}
+
+.category-item.red {
+    background-color: #dc2626;
+    color: white;
+}
+
+.category-item.red:hover {
+    background-color: #b91c1c;
+}
+
+.category-item i {
+    font-size: 12px;
+}
+
+/* Подменю весовых категорий */
+.sub-dropdown {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #3d3d3d;
+    border: 1px solid #4d4d4d;
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    z-index: 101;
+    display: none;
+    min-width: 180px;
+    margin-left: 10px;
+}
+
+.sub-dropdown.active {
+    display: block;
+}
+
+.weight-item {
+    padding: 12px 20px;
+    display: block;
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #e0e0e0;
+    border-bottom: 1px solid #4d4d4d;
+    transition: background-color 0.2s;
+}
+
+.weight-item:last-child {
+    border-bottom: none;
+}
+
+.weight-item:hover {
+    background-color: #4d4d4d;
+}
+
+.weight-item.blue {
+    border-left: 3px solid #2563eb;
+}
+
+.weight-item.red {
+    border-left: 3px solid #dc2626;
+}
+
+/* Контейнер авторизации */
+.auth-container {
+    position: relative;
+}
+
+/* Кнопка авторизации/профиля */
+.auth-btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s;
+    min-width: 140px;
+}
+
+.auth-btn:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Стили для кнопки "Профиль" (после авторизации) */
+.auth-btn.profile {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border: 2px solid #dc2626;
+    border-radius: 6px;
+}
+
+.auth-btn.profile:hover {
+    background-color: #3d3d3d;
+    border-color: #b91c1c;
+}
+
+/* Форма авторизации (выпадает под кнопкой) */
+.auth-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #2d2d2d;
+    border: 1px solid #4d4d4d;
+    border-radius: 8px;
+    padding: 20px;
+    width: 280px;
+    display: none;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.5);
+    z-index: 1000;
+    margin-top: 8px;
+}
+
+.auth-dropdown.active {
+    display: block;
+}
+
+.auth-dropdown h4 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.auth-dropdown .form-group {
+    margin-bottom: 15px;
+}
+
+.auth-dropdown input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: 1px solid #4d4d4d;
+    background-color: #3d3d3d;
+    color: white;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.auth-dropdown input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.auth-switch {
+    margin-top: 15px;
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid #4d4d4d;
+}
+
+.auth-switch span {
+    color: #aaaaaa;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.auth-switch a {
+    color: #2563eb;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+/* Контент */
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.content {
+    background-color: #2d2d2d;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    border: 1px solid #3d3d3d;
+}
+
+.content h2 {
+    margin-bottom: 15px;
+    color: #ffffff;
+    font-size: 22px;
+    text-align: center;
+}
+
+.content > p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Карточки рейтинга */
+.rating-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rating-item {
+    background-color: #3d3d3d;
+    border-radius: 8px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    min-height: 60px;
+}
+
+.rating-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2563eb;
+    min-width: 30px;
+    text-align: center;
+}
+
+.rating-number.red {
+    color: #dc2626;
+}
+
+.athlete-photo {
+    width: 45px;
+    height: 45px;
+    border-radius: 6px;
+    background-color: #4d4d4d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #aaaaaa;
+    flex-shrink: 0;
+}
+
+.athlete-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.athlete-name {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 3px;
+}
+
+.athlete-rank {
+    font-size: 12px;
+    color: #fbbf24;
+    background-color: rgba(251, 191, 36, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.rating-score {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: right;
+    min-width: 60px;
+}
+
+.rating-score.blue {
+    color: #2563eb;
+}
+
+.rating-score.red {
+    color: #dc2626;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .center-menu {
+        width: 100%;
+        order: 2;
+    }
+    
+    .rating-button {
+        width: 100%;
+    }
+    
+    .auth-container {
+        width: 100%;
+        order: 3;
+    }
+    
+    .auth-btn {
+        width: 100%;
+    }
+    
+    .auth-dropdown {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 350px;
+        margin-top: 0;
+    }
+    
+    .main-dropdown {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 350px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+    
+    .rating-item {
+        padding: 10px;
+        gap: 8px;
+    }
+    
+    .sub-dropdown {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 250px;
+        margin-left: 0;
+    }
+}
