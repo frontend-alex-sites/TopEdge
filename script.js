@@ -53,7 +53,8 @@ async function loadRatingData() {
     console.log("📥 Загружаю данные рейтинга...");
     showLoading();
 
-    const response = await fetch("data/rating.json?v=" + Date.now());
+    // Для GitHub Pages
+    const response = await fetch("./data/rating.json?v=" + Date.now());
     if (!response.ok) throw new Error(`Ошибка: ${response.status}`);
 
     ratingData = await response.json();
@@ -126,11 +127,7 @@ function updateLastUpdatedTime() {
 }
 
 function showRatingForCategory(category, weight) {
-  if (
-    !ratingData ||
-    !ratingData.categories ||
-    !ratingData.categories[category]
-  ) {
+  if (!ratingData || !ratingData.categories || !ratingData.categories[category]) {
     console.warn("Нет данных для:", category);
     showNoData();
     return;
@@ -144,8 +141,7 @@ function showRatingForCategory(category, weight) {
   }
 
   const data = categoryWeights[weight];
-  const isRed =
-    category.includes("women") || category.includes("juniors-women");
+  const isRed = category.includes("women") || category.includes("juniors-women");
   const colorClass = isRed ? "red" : "blue";
   const color = isRed ? "#dc2626" : "#2563eb";
 
@@ -179,13 +175,13 @@ function renderAthletes(athletes, containerId, colorClass) {
   let html = "";
 
   athletes.forEach((athlete, index) => {
-    // Улучшенный путь к фото: пробуем разные варианты
+    // ПУТЬ К ФОТО для GitHub Pages
     const baseName = athlete.name.replace(/ /g, "_");
     const photoVariants = [
-      `../photos/${baseName}.jpg`,
-      `../photos/${baseName}.jpeg`,
-      `../photos/${baseName}.png`,
-      `../photos/${baseName.replace(/ё/g, "е")}.jpg`,
+      `./photos/${baseName}.jpg`,
+      `./photos/${baseName}.jpeg`,
+      `./photos/${baseName}.png`,
+      `./photos/${baseName.replace(/ё/g, 'е')}.jpg`,
     ];
 
     // Инициалы для фолбэка
@@ -203,11 +199,10 @@ function renderAthletes(athletes, containerId, colorClass) {
     html += `
       <div class="rating-item">
         <div class="rating-number ${colorClass}">${index + 1}</div>
-        <div class="athlete-photo" id="photo-${baseName}">
+        <div class="athlete-photo">
           <img src="${photoVariants[0]}" alt="${athlete.name}" 
                class="athlete-photo-img"
                onerror="
-                 console.log('Фото не найдено: ${photoVariants[0]}');
                  this.onerror = null;
                  this.src = '${photoVariants[1]}';
                ">
@@ -223,23 +218,23 @@ function renderAthletes(athletes, containerId, colorClass) {
   });
 
   container.innerHTML = html;
-
+  
   // После загрузки проверяем фото
   setTimeout(() => {
-    const imgs = container.querySelectorAll(".athlete-photo-img");
-    imgs.forEach((img) => {
+    const imgs = container.querySelectorAll('.athlete-photo-img');
+    imgs.forEach(img => {
       if (!img.complete || img.naturalHeight === 0) {
         const parent = img.parentElement;
-        const fallback = parent.querySelector(".photo-fallback");
+        const fallback = parent.querySelector('.photo-fallback');
         if (fallback) {
-          img.style.display = "none";
-          fallback.style.display = "flex";
-          fallback.style.alignItems = "center";
-          fallback.style.justifyContent = "center";
-          fallback.style.width = "100%";
-          fallback.style.height = "100%";
-          fallback.style.fontSize = "18px";
-          fallback.style.color = "#aaaaaa";
+          img.style.display = 'none';
+          fallback.style.display = 'flex';
+          fallback.style.alignItems = 'center';
+          fallback.style.justifyContent = 'center';
+          fallback.style.width = '100%';
+          fallback.style.height = '100%';
+          fallback.style.fontSize = '18px';
+          fallback.style.color = '#aaaaaa';
         }
       }
     });
@@ -265,10 +260,10 @@ function createWeightSubmenu(category, colorClass, button) {
     weights = Object.keys(ratingData.categories[category]);
     // Сортируем веса: сначала числовые, потом с плюсом
     weights.sort((a, b) => {
-      const aNum = parseInt(a.replace("+", ""));
-      const bNum = parseInt(b.replace("+", ""));
-      if (a.endsWith("+") && !b.endsWith("+")) return 1;
-      if (!a.endsWith("+") && b.endsWith("+")) return -1;
+      const aNum = parseInt(a.replace('+', '')) || 0;
+      const bNum = parseInt(b.replace('+', '')) || 0;
+      if (a.endsWith('+') && !b.endsWith('+')) return 1;
+      if (!a.endsWith('+') && b.endsWith('+')) return -1;
       return aNum - bNum;
     });
   }
@@ -309,10 +304,9 @@ function createAgeSubmenu(categoryType, colorClass, button) {
   const ageSubmenu = document.createElement("div");
   ageSubmenu.className = `age-dropdown ${colorClass}`;
 
-  const ageGroups =
-    categoryType === "juniors-men"
-      ? ["14-15 лет", "16-18 лет", "19-21 лет"]
-      : ["14-15 лет", "16-18 лет", "19-21 лет"];
+  const ageGroups = categoryType === "juniors-men" 
+    ? ["14-15 лет", "16-18 лет", "19-21 лет"]
+    : ["14-15 лет", "16-18 лет", "19-21 лет"];
 
   ageGroups.forEach((ageGroup) => {
     const ageBtn = document.createElement("button");
@@ -405,6 +399,10 @@ document.addEventListener("keydown", function (event) {
     closeAllSubmenus();
   }
 });
+
+// Проверка для отладки
+console.log("ArmForce рейтинг загружен");
+console.log("GitHub Pages путь:", window.location.href);
 
 document.addEventListener("DOMContentLoaded", function () {
   loadRatingData();
