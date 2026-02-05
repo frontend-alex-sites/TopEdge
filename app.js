@@ -182,10 +182,10 @@ function renderAthletes(athletes, containerId, colorClass) {
   athletes.forEach((athlete, index) => {
     const baseName = athlete.name.replace(/ /g, "_");
     const photoVariants = [
-      `../photos/${baseName}.jpg`,
-      `../photos/${baseName}.jpeg`,
-      `../photos/${baseName}.png`,
-      `../photos/${baseName.replace(/ё/g, "е")}.jpg`,
+      `photos/${baseName}.jpg`,
+      `photos/${baseName}.jpeg`,
+      `photos/${baseName}.png`,
+      `photos/${baseName.replace(/ё/g, "е")}.jpg`,
     ];
 
     const nameParts = athlete.name.split(" ");
@@ -400,3 +400,4 @@ document.addEventListener("DOMContentLoaded", function () {
   loadRatingData();
   setInterval(loadRatingData, 5 * 60 * 1000);
 });
+
