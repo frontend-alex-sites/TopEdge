@@ -23,11 +23,11 @@ const categoryDisplayNames = {
   men: "Мужчины",
   "juniors-men-14-15": "Юниоры 14-15 лет",
   "juniors-men-16-18": "Юниоры 16-18 лет",
-  "juniors-men-19-21": "Юниоры 19-21 лет",
+  "juniors-men-19-21": "Юниоры 19-21 год",
   women: "Женщины",
   "juniors-women-14-15": "Юниорки 14-15 лет",
   "juniors-women-16-18": "Юниорки 16-18 лет",
-  "juniors-women-19-21": "Юниорки 19-21 лет",
+  "juniors-women-19-21": "Юниорки 19-21 год",
 };
 
 const categoryShortNames = {
@@ -400,5 +400,6 @@ document.addEventListener("DOMContentLoaded", function () {
   loadRatingData();
   setInterval(loadRatingData, 5 * 60 * 1000);
 });
+
 
 
