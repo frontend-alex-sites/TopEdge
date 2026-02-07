@@ -447,7 +447,7 @@ body {
     .header {
         padding: 15px;
         flex-direction: column;
-        gap: 15px;
+        gap: 0px;
         min-height: auto;
     }
     
@@ -578,6 +578,7 @@ body {
         text-align: center;
     }
 }
+
 
 
 
