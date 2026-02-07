@@ -551,27 +551,9 @@ body {
 
 }
 
-.city-flag {
-    position: absolute !important; /* Меняем fixed на absolute */
-    left: 120% !important;
-    top: -100px !important; /* Фиксированная высота от верха шапки */
-    transform: translateX(-50%) !important; /* Только по горизонтали */
-    z-index: 9999 !important;
-}
 
-.city-flag img {
-    width: 80px !important;
-    height: 55px !important;
-}
-}
-@media (max-width: 768px) {
-    .city-flag {
-        position: static;
-        margin: 15px auto;
-        transform: none;
-        text-align: center;
-    }
-}
+
+
 
 
 
