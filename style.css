@@ -567,17 +567,109 @@ body {
     object-fit: cover;
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+    .header {
+        padding: 15px;
+        flex-direction: column;
+        gap: 0px;
+        min-height: auto;
+    }
+    
+    .logo {
+        position: static;
+        transform: none;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .center-menu {
+        width: 100%;
+        order: 2;
+    }
+    
+    .rating-button {
+        width: 100%;
+    }
+    
+    .main-dropdown {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 350px;
+    }
+    
+    .rating-container {
+        flex-direction: column;
+    }
+    
+    .rating-column {
+        width: 100%;
+    }
+    
+    .container {
+        padding: 0 15px;
+        max-width: 100%;
+    }
+    
+    .content {
+        padding: 20px;
+    }
+    
+    .rating-item {
+        padding: 10px;
+        gap: 8px;
+    }
+    
+    .sub-dropdown {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 250px;
+        margin-left: 0;
+    }
+    
+    .age-dropdown {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 250px;
+        margin-left: 0;
+    }
+}
+
+
 /* Адаптив для телефонов */
 @media (max-width: 768px) {
     .city-flag {
         position: relative;
         left: 0;
-        top: 0;
+        top: 0px;
         transform: none;
         margin: 15px auto;
         text-align: center;
     }
 }
+
+
+/* Адаптив для планшетов */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .city-flag {
+        position: relative;
+        left: 0;
+        top: 0px;
+        transform: none;
+        margin: 15px auto;
+        text-align: center;
+    }
+}
+}
+
 
 
 
