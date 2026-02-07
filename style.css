@@ -551,28 +551,34 @@ body {
 
 }
 
+/* Жесткие стили для флага - ничего не перебьет */
 .city-flag {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    margin-left: -260px; /* Двигай эту цифру */
+    position: fixed !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    z-index: 9999 !important;
+}
+
+/* Двигай left пока не встанет */
+.city-flag {
+    left: 45% !important; /* Начинай с этой цифры */
 }
 
 .city-flag img {
-    width: 80px;
-    height: 55px;
+    width: 80px !important;
+    height: 55px !important;
+    display: block !important;
 }
-
-/* Для телефонов */
 @media (max-width: 768px) {
     .city-flag {
         position: static;
         margin: 15px auto;
         transform: none;
+        text-align: center;
     }
 }
-
-
 
 
