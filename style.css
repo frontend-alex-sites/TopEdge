@@ -551,16 +551,26 @@ body {
 
 }
 
-/* Фото Красноярска - просто и работает */
 .city-flag {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    margin-left: -260px; /* Начинай с этой цифры */
 }
 
 .city-flag img {
     width: 80px;
     height: 55px;
+    object-fit: cover;
+}
+
+/* Для телефонов */
+@media (max-width: 768px) {
+    .city-flag {
+        position: static;
+        margin: 15px auto;
+        transform: none;
+    }
 }
 
