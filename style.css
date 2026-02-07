@@ -550,19 +550,25 @@ body {
     color: #ffc93f;
 
 }
+
 /* Флаг Красноярского края */
 .city-flag {
     position: absolute;
-    left: calc(50% - 260px);
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%);
-    padding-top: 4px;
+    transform: translate(-50%, -50%);
+    width: 80px; /* Фиксируем размер контейнера */
+    height: 55px;
+    z-index: 1;
 }
 
 .city-flag img {
-    width: 80px;
-    height: 55px;
-    object-fit: cover;
+    width: 100%; /* Занимает 100% от контейнера */
+    height: 100%;
+    object-fit: cover; /* Обрезает если нужно */
+    display: block;
+    max-width: 100%; /* Не больше контейнера */
+    max-height: 100%;
 }
 
 /* Адаптив для телефонов */
@@ -573,6 +579,7 @@ body {
         top: 0;
         transform: none;
         margin: 15px auto;
-        text-align: center;
+        width: 70px;
+        height: 45px;
     }
 }
