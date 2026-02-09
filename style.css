@@ -645,7 +645,6 @@ body {
 
 
 
-
 /* Адаптив для телефонов (до 480px) */
 @media (max-width: 480px) {
     .header {
@@ -825,8 +824,5 @@ body {
         text-align: center;
     }
 }
-
-
-
 
 
