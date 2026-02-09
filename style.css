@@ -644,8 +644,10 @@ body {
 }
 
 
-/* Адаптив для телефонов */
-@media (max-width: 768px) {
+
+
+/* Адаптив для телефонов (до 480px) */
+@media (max-width: 480px) {
     .header {
         padding: 15px;
         flex-direction: column;
@@ -673,34 +675,35 @@ body {
         padding: 14px 20px;
     }
     
-    /* ИЗМЕНЕНИЯ ТОЛЬКО ДЛЯ РАСПОЛОЖЕНИЯ МЕНЮ - КАК БЫЛО */
+    /* Меню для телефонов - ТОЧНО КАК НА МОБИЛКАХ */
     .main-dropdown {
         position: absolute;
         top: 100%;
         left: 0;
         transform: none;
-        width: 50%; /* Половина ширины как и было */
+        width: 50%;
         min-width: auto;
+        z-index: 1000;
     }
     
-    /* Подменю для мобильных - ПРИКЛЕИВАЕМ К ШАПКЕ СПРАВА */
     .sub-dropdown {
         position: absolute;
         top: 0;
-        left: 100%; /* Выезжает справа от главного меню */
+        left: 100%;
         width: 180px;
         margin-left: 10px;
+        z-index: 1001;
     }
     
     .age-dropdown {
         position: absolute;
         top: 0;
-        left: 100%; /* Выезжает справа от главного меню */
+        left: 100%;
         width: 200px;
         margin-left: 10px;
+        z-index: 1002;
     }
     
-    /* Остальные стили для мобильных */
     .rating-container {
         flex-direction: column;
     }
@@ -733,8 +736,8 @@ body {
     }
 }
 
-/* Адаптив для планшетов */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* Адаптив для планшетов (481px - 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
     .header {
         padding: 15px;
         flex-direction: column;
@@ -762,30 +765,33 @@ body {
         padding: 14px 20px;
     }
     
-    /* Меню для планшетов - ТОЧНО КАК НА МОБИЛКАХ */
+    /* Меню для планшетов */
     .main-dropdown {
         position: absolute;
         top: 100%;
         left: 0;
         transform: none;
-        width: 50%; /* Половина ширины как на мобилках */
+        width: 50%;
         min-width: auto;
+        z-index: 1000;
     }
     
     .sub-dropdown {
         position: absolute;
         top: 0;
-        left: 100%; /* Выезжает справа от главного меню */
+        left: 100%;
         width: 180px;
         margin-left: 10px;
+        z-index: 1001;
     }
     
     .age-dropdown {
         position: absolute;
         top: 0;
-        left: 100%; /* Выезжает справа от главного меню */
+        left: 100%;
         width: 200px;
         margin-left: 10px;
+        z-index: 1002;
     }
     
     .rating-container {
