@@ -441,18 +441,24 @@ function setupCategoryClick(button, category, colorClass) {
   });
 }
 
-// Основная кнопка рейтинга
-ratingButton.addEventListener("click", function (event) {
-  event.stopPropagation();
-  mainDropdown.classList.toggle("active");
-  ratingButton.classList.toggle("active");
-  isMenuOpen = mainDropdown.classList.contains("active");
-
-  // Закрываем все подменю при открытии основного меню
-  if (mainDropdown.classList.contains("active")) {
-    closeAllSubmenus();
-    resetAllCategoryArrows();
-  }
+ratingButton.addEventListener('click', function(e) {
+    e.stopPropagation();
+    
+    // Закрываем все открытые подменю (категории и возраста)
+    const activeSubDropdowns = document.querySelectorAll('.sub-dropdown.active, .age-dropdown.active');
+    activeSubDropdowns.forEach(dropdown => {
+        dropdown.classList.remove('active');
+    });
+    
+    // Открываем/закрываем главное меню
+    mainDropdown.classList.toggle('active');
+    
+    // Обновляем состояние кнопки
+    if (mainDropdown.classList.contains('active')) {
+        ratingButton.classList.add('active');
+    } else {
+        ratingButton.classList.remove('active');
+    }
 });
 
 // Настраиваем клики на все категории
@@ -497,4 +503,5 @@ document.addEventListener("DOMContentLoaded", function () {
   loadRatingData();
   setInterval(loadRatingData, 5 * 60 * 1000);
 });
+
 
