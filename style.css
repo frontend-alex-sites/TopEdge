@@ -544,7 +544,7 @@ body {
     font-size: 18px;
     font-weight: bold;
     text-align: right;
-    min-width: 20px;
+    min-width: 22px;
 }
 
 .rating-score.blue {
@@ -758,4 +758,5 @@ body {
         gap: 0px;
     }
 }
+
 
