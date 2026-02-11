@@ -682,7 +682,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 12px;
+    gap: 2px;
     min-width: 70px;
     margin-left: auto;
 }
@@ -748,6 +748,7 @@ body {
 .trend-down {
     color: #ef4444;
 }
+
 
 
 
