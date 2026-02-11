@@ -648,3 +648,25 @@ body {
         text-align: center;
     }
 }
+
+/* Стрелки с разницей мест */
+.trend-up, .trend-down {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 14px;
+}
+
+.trend-up {
+    color: #10b981;
+}
+
+.trend-down {
+    color: #ef4444;
+}
+
+@media (max-width: 768px) {
+    .trend-up, .trend-down {
+        font-size: 12px;
+    }
+}
