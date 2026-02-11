@@ -671,6 +671,37 @@ body {
     }
 }
 
+
+/* Золотой цвет для номера 1 */
+.rating-number.gold {
+    color: #ffcb49 !important;
+}
+
+/* Контейнер для баллов и стрелки */
+.score-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    min-width: 70px;
+    margin-left: auto;
+}
+
+/* Баллы */
+.rating-score {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.rating-score.blue {
+    color: #C0C0C0;
+}
+
+.rating-score.red {
+    color: #C0C0C0;
+}
+
 /* Стрелки слева от баллов */
 .trend-up {
     color: #10b981;
@@ -717,3 +748,4 @@ body {
 .trend-down {
     color: #ef4444;
 }
+
