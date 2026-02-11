@@ -174,7 +174,7 @@ function renderAthletes(athletes, containerId, colorClass) {
   const container = document.getElementById(containerId);
 
   if (!athletes || athletes.length === 0) {
-    container.innerHTML = `<div class="placeholder"><i class="fas fa-user-slash" style="font-size: 32px; color: #666;"></i><p>Нет спортсменов</p></div>`;
+    container.innerHTML = `<div class="placeholder"><i class="fas fa-user-slash" style="font-size: 32px; color: #666;"></i><p>Нет спортсменов в этой категории</p></div>`;
     return;
   }
 
@@ -199,14 +199,32 @@ function renderAthletes(athletes, containerId, colorClass) {
 
     let rankText = athlete.rank || "";
 
+    // === ЭТО НОВЫЙ КОД ДЛЯ СТРЕЛОК С РАЗНИЦЕЙ ===
+    let trendIcon = "";
+    const currentPlace = index + 1;
+    const prevPlace = athlete.prev_place;
+
+    if (prevPlace) {
+      const diff = prevPlace - currentPlace;
+      if (currentPlace < prevPlace) {
+        trendIcon = `<span class="trend-up">↑ +${diff}</span>`;
+      } else if (currentPlace > prevPlace) {
+        trendIcon = `<span class="trend-down">↓ ${diff}</span>`;
+      } else {
+        trendIcon = '<span class="trend-same">–</span>';
+      }
+    } else {
+      trendIcon = '<span class="trend-new">NEW</span>';
+    }
+    // === КОНЕЦ НОВОГО КОДА ===
+
     html += `
       <div class="rating-item">
-        <div class="rating-number ${colorClass}">${index + 1}</div>
+        <div class="rating-number ${index === 0 ? "gold" : colorClass}">${index + 1}</div>
         <div class="athlete-photo" id="photo-${baseName}">
           <img src="${photoVariants[0]}" alt="${athlete.name}" 
                class="athlete-photo-img"
                onerror="
-                 console.log('Фото не найдено: ${photoVariants[0]}');
                  this.onerror = null;
                  this.src = '${photoVariants[1]}';
                ">
@@ -216,7 +234,10 @@ function renderAthletes(athletes, containerId, colorClass) {
           <div class="athlete-name">${athlete.name}</div>
           <div class="athlete-rank">${rankText}</div>
         </div>
-        <div class="rating-score ${colorClass}">${athlete.rating}</div>
+        <div class="score-wrapper">
+          ${trendIcon}
+          <span class="rating-score ${colorClass}">${athlete.rating}</span>
+        </div>
       </div>
     `;
   });
@@ -503,5 +524,6 @@ document.addEventListener("DOMContentLoaded", function () {
   loadRatingData();
   setInterval(loadRatingData, 5 * 60 * 1000);
 });
+
 
 
