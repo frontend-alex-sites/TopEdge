@@ -596,7 +596,7 @@ body {
     }
     
     .athlete-name {
-        font-size: 10px;
+        font-size: 12px;
         font-weight: bold;
         color: white;
         margin-bottom: 3px;
@@ -738,4 +738,5 @@ body {
         text-align: center;
     }
 }
+
 
