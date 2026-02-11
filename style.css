@@ -343,6 +343,10 @@ body {
     color: #dc2626;
 }
 
+.rating-number.gold {
+    color: #ffcb49 !important;
+}
+
 .athlete-photo {
     width: 45px;
     height: 45px;
@@ -379,7 +383,7 @@ body {
 }
 
 .athlete-rank {
-   font-size: 12px;
+    font-size: 12px;
     padding: 2px 6px;
     display: inline-block;
     width: fit-content;
@@ -432,7 +436,6 @@ body {
     background: #1d4ed8;
 }
 
-/* Флаг Красноярского края */
 .city-flag {
     position: absolute;
     left: calc(50% - 260px);
@@ -447,24 +450,16 @@ body {
     object-fit: cover;
 }
 
-/* ========== ОСНОВНЫЕ СТИЛИ РЕЙТИНГА ========== */
-
-/* Золотой цвет для номера 1 */
-.rating-number.gold {
-    color: #ffcb49 !important;
-}
-
-/* Контейнер для баллов и стрелки */
+/* ========== КОНТЕЙНЕР БАЛЛОВ И СТРЕЛОК ========== */
 .score-wrapper {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 12px;  /* ← МЕНЯЙ ЭТО - расстояние между стрелкой и баллами */
+    gap: 12px;
     min-width: 70px;
     margin-left: auto;
 }
 
-/* Баллы */
 .rating-score {
     font-size: 18px;
     font-weight: bold;
@@ -481,11 +476,9 @@ body {
 }
 
 /* ========== СТРЕЛКИ И ЗНАЧКИ ========== */
-
-/* Общие стили для всех значков */
-.trend-up, 
-.trend-down, 
-.trend-same, 
+.trend-up,
+.trend-down,
+.trend-same,
 .trend-new {
     display: flex;
     align-items: center;
@@ -493,31 +486,21 @@ body {
     line-height: 1;
 }
 
-/* Стрелка вверх */
 .trend-up {
     color: #10b981;
     font-size: 16px;
-    margin-left: 0;
-    margin-right: 0;
 }
 
-/* Стрелка вниз */
 .trend-down {
     color: #ef4444;
     font-size: 16px;
-    margin-left: 0;
-    margin-right: 0;
 }
 
-/* Черточка (без изменений) */
 .trend-same {
     color: #f59e0b;
     font-size: 20px;
-    margin-left: 0;
-    margin-right: 0;
 }
 
-/* NEW */
 .trend-new {
     color: #8b5cf6;
     font-size: 11px;
@@ -525,38 +508,9 @@ body {
     padding: 2px 6px;
     border-radius: 6px;
     font-weight: bold;
-    margin-left: 0;
-    margin-right: 0;
 }
 
-/* Контейнер для баллов и стрелки - ПК */
-.score-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 12px;
-    min-width: 70px;
-    margin-left: auto;
-    padding-left: 0;
-}
-
-/* Баллы - ПК */
-.rating-score {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: right;
-    min-width: 50px;
-}
-
-.rating-score.blue {
-    color: #C0C0C0;
-}
-
-.rating-score.red {
-    color: #C0C0C0;
-}
-
-/* ========== АДАПТИВ ДЛЯ ТЕЛЕФОНОВ ========== */
+/* ========== АДАПТИВ ТЕЛЕФОНЫ ========== */
 @media (max-width: 768px) {
     .header {
         padding: 15px;
@@ -633,23 +587,12 @@ body {
     
     .rating-item {
         padding: 10px;
-        gap: 6px;
+        gap: 8px;
     }
     
-    .city-flag {
-        position: relative;
-        left: 0;
-        top: 0px;
-        transform: none;
-        margin: 15px auto;
-        text-align: center;
-    }
-    
-    /* ФИКС ИМЕНИ - НИЧЕГО НЕ НАЛЕЗАЕТ */
-    .athlete-info {
-        flex: 1;
-        min-width: 0;
-        max-width: calc(100% - 160px);
+    .athlete-photo {
+        width: 40px;
+        height: 40px;
     }
     
     .athlete-name {
@@ -657,11 +600,9 @@ body {
         font-weight: bold;
         color: white;
         margin-bottom: 3px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: block;
-        width: 100%;
+        white-space: normal;
+        word-break: break-word;
+        line-height: 1.3;
     }
     
     .athlete-rank {
@@ -669,66 +610,46 @@ body {
         padding: 1px 4px;
     }
     
-    /* ФИКС СТРЕЛОК И БАЛЛОВ */
     .score-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 2px;
-        min-width: 55px;
-        padding-left: 0;
-        margin-left: 0;
-        flex-shrink: 0;
+        gap: 0px;
+        min-width: 60px;
     }
     
     .rating-score {
         font-size: 16px;
-        min-width: 25px;
-        margin-left: 0;
-        padding-left: 0;
-        flex-shrink: 0;
+        min-width: 30px;
     }
     
-    /* Стрелки */
     .trend-up,
     .trend-down {
-        font-size: 13px;
-        margin-left: 0;
-        margin-right: 0;
-        flex-shrink: 0;
+        font-size: 14px;
     }
     
     .trend-same {
         font-size: 18px;
-        margin-left: 0;
-        margin-right: 0;
-        flex-shrink: 0;
     }
     
     .trend-new {
         font-size: 10px;
-        padding: 1px 3px;
-        margin-left: 0;
-        margin-right: 0;
-        flex-shrink: 0;
+        padding: 1px 4px;
     }
     
-    /* ФИКС ФОТО */
-    .athlete-photo {
-        width: 40px;
-        height: 40px;
-        flex-shrink: 0;
-    }
-    
-    /* НОМЕР */
     .rating-number {
         font-size: 18px;
         min-width: 25px;
-        flex-shrink: 0;
+    }
+    
+    .city-flag {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+        margin: 15px auto;
+        text-align: center;
     }
 }
 
-/* ========== АДАПТИВ ДЛЯ ПЛАНШЕТОВ ========== */
+/* ========== АДАПТИВ ПЛАНШЕТЫ ========== */
 @media (min-width: 769px) and (max-width: 1024px) {
     .header {
         padding: 15px;
@@ -816,16 +737,4 @@ body {
         margin: 15px auto;
         text-align: center;
     }
-    
-    .score-wrapper {
-        gap: 0px;
-    }
 }
-
-
-
-
-
-
-
-
