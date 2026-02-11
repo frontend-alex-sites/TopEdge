@@ -707,7 +707,7 @@ body {
     color: #10b981;
     font-size: 20px;
     line-height: 1;
-    margin-right: 0px; /* ← добавил отступ справа */
+    margin-right: 15px; /* ← добавил отступ справа */
 }
 
 .trend-down {
@@ -748,5 +748,6 @@ body {
 .trend-down {
     color: #ef4444;
 }
+
 
 
