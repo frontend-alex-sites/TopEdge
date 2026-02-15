@@ -524,7 +524,6 @@ body {
         transform: none;
         justify-content: center;
         width: 100%;
-        margin-bottom: 0px;
     }
     
     .center-menu {
@@ -663,7 +662,6 @@ body {
         transform: none;
         justify-content: center;
         width: 100%;
-        margin-bottom: 15px;
     }
     
     .center-menu {
@@ -738,6 +736,7 @@ body {
         text-align: center;
     }
 }
+
 
 
 
